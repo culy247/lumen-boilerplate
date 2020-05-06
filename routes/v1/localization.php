@@ -1,6 +1,6 @@
 <?php
 
-$api->get(
+$router->get(
     '/localizations',
     [
         'uses' => 'LocalizationController@index',

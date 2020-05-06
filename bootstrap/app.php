@@ -111,6 +111,8 @@ $app->register(Spatie\Permission\PermissionServiceProvider::class);
 $app->register(Vinkla\Hashids\HashidsServiceProvider::class);
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 $app->register(Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class);
+//route list
+$app->register(\Thedevsaddam\LumenRouteList\LumenRouteListServiceProvider::class);
 
 $app[Dingo\Api\Auth\Auth::class]->extend(
     'passport',
@@ -172,16 +174,6 @@ if (class_exists('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider')) {
 
 $api = $app[Dingo\Api\Routing\Router::class];
 
-// Version 1
-$api->version(
-    'v1',
-    [
-        'namespace' => 'App\Http\Controllers\V1',
-    ],
-    function ($api) {
-        require __DIR__.'/../routes/v1/api.php';
-    }
-);
 
 /*
 |--------------------------------------------------------------------------
@@ -193,13 +185,25 @@ $api->version(
 | can respond to, as well as the controllers that may handle them.
 |
 */
-
+/*
 $app->router->group(
     [
         'namespace' => 'App\Http\Controllers',
     ],
     function ($router) use ($app) {
         require __DIR__.'/../routes/web.php';
+    }
+);
+*/
+// Version 1
+$app->router->group(
+    [
+        'prefix'    => 'v1',
+        'version'   => 'v1',
+        'namespace' => 'App\Http\Controllers\V1',
+    ],
+    function ($router) use ($app) {
+        require __DIR__.'/../routes/v1/api.php';
     }
 );
 

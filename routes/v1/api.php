@@ -7,7 +7,7 @@
 |
 */
 
-$api->get(
+$router->get(
     '/',
     function () {
         return [
@@ -17,7 +17,7 @@ $api->get(
     }
 );
 
-$api->group(
+$router->group(
     [
         'middleware' => [
             'api.throttle',
@@ -27,30 +27,30 @@ $api->group(
         'limit' => config('setting.api.throttle.limit'), // api.throttle max
         'expires' => config('setting.api.throttle.expires') * 60, // api.throttle minute
     ],
-    function () use ($api) {
+    function () use ($router) {
         include 'localization.php';
 
-        $api->group(
+        $router->group(
             [
                 'namespace' => 'Frontend',
                 'as' => 'frontend',
             ],
-            function () use ($api) {
+            function () use ($router) {
                 include 'frontend/user/user.php';
             }
         );
-        $api->group(
+        $router->group(
             [
                 'namespace' => 'Backend',
                 'as' => 'backend',
                 'middleware' => 'permission:'.config('setting.permission.permission_names.view_backend'),
             ],
-            function () use ($api) {
-                $api->group(
+            function () use ($router) {
+                $router->group(
                     [
                         'prefix' => 'auth',
                     ],
-                    function () use ($api) {
+                    function () use ($router) {
                         include 'backend/auth/user.php';
                         include 'backend/auth/role.php';
                         include 'backend/auth/permission.php';

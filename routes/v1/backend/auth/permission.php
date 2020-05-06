@@ -1,21 +1,21 @@
 <?php
 
-$api->group(
+$router->group(
     [
         'namespace' => 'Auth\Permission',
         'as' => 'permissions',
         'prefix' => 'permissions',
     ],
-    function () use ($api) {
+    function () use ($router) {
         // resources
-        $api->get(
+        $router->get(
             '/',
             [
                 'as' => 'index',
                 'uses' => 'PermissionController@index',
             ]
         );
-        $api->get(
+        $router->get(
             '/{id}',
             [
                 'as' => 'show',
