@@ -41,9 +41,9 @@
         }
     },
     "links": {
-        "self": "http://lumen-dingo-boilerplate.test/auth/roles?page=1",
-        "first": "http://lumen-dingo-boilerplate.test/auth/roles?page=1",
-        "last": "http://lumen-dingo-boilerplate.test/auth/roles?page=1"
+        "self": "http://{{domain}}/auth/roles?page=1",
+        "first": "http://{{domain}}/auth/roles?page=1",
+        "last": "http://{{domain}}/auth/roles?page=1"
     }
 }
  */

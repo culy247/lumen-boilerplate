@@ -22,10 +22,10 @@
         }
     },
     "links": {
-        "self": "http://lumen-dingo-boilerplate.test/auth/permissions?limit=1&page=1",
-        "first": "http://lumen-dingo-boilerplate.test/auth/permissions?limit=1&page=1",
-        "next": "http://lumen-dingo-boilerplate.test/auth/permissions?limit=1&page=2",
-        "last": "http://lumen-dingo-boilerplate.test/auth/permissions?limit=1&page=16"
+        "self": "http://{{domain}}/auth/permissions?limit=1&page=1",
+        "first": "http://{{domain}}/auth/permissions?limit=1&page=1",
+        "next": "http://{{domain}}/auth/permissions?limit=1&page=2",
+        "last": "http://{{domain}}/auth/permissions?limit=1&page=16"
     }
 }
  */
