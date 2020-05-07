@@ -30,6 +30,7 @@
     "dusterio/lumen-passport": "^0.2.18",
     "fruitcake/laravel-cors": "^1.0",
     "gmsantos/inspiring": "^3.0.1",
+    "illuminate/mail": "^7.10",
     "laravel/lumen-framework": "^7.0.3",
     "laravel/passport": "^8.4.3",
     "laravel/socialite": "^4.3.2",

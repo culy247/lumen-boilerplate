@@ -35,7 +35,11 @@ $app->configure('permission');
 $app->configure('repository');
 $app->configure('services');
 $app->configure('setting');
+$app->configure('mail');
 
+$app->alias('mailer', Illuminate\Mail\Mailer::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
 $app->alias('cache', Illuminate\Cache\CacheManager::class);
 
 /*
@@ -162,6 +166,8 @@ $app[Dingo\Api\Exception\Handler::class]
 if (class_exists('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider')) {
     $app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
 }
+
+$app->register(Illuminate\Mail\MailServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
