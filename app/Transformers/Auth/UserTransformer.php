@@ -40,10 +40,10 @@ class UserTransformer extends BaseTransformer
     public function transform(User $user)
     {
         $response = [
-            'id' => $user->getHashedId(),
+            'id'         => $user->getHashedId(),
             'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email,
+            'last_name'  => $user->last_name,
+            'email'      => $user->email,
         ];
 
         $response = $this->filterData(

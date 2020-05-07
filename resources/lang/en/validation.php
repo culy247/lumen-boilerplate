@@ -114,6 +114,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'hash_id_invalid' => 'ID is invalid.'
+    ],
 
 ];

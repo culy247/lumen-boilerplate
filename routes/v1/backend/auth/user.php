@@ -3,7 +3,7 @@
 $api->group(
     [
         'namespace' => 'Auth\User',
-        'as' => 'users',
+        'as'        => 'users',
     ],
     function () use ($api) {
         $api->group(
@@ -15,21 +15,21 @@ $api->group(
                 $api->get(
                     '/deleted',
                     [
-                        'as' => 'deleted',
+                        'as'   => 'deleted',
                         'uses' => 'UserDeleteController@deleted',
                     ]
                 );
                 $api->put(
                     '/{id}/restore',
                     [
-                        'as' => 'restore',
+                        'as'   => 'restore',
                         'uses' => 'UserDeleteController@restore',
                     ]
                 );
                 $api->delete(
                     '/{id}/purge',
                     [
-                        'as' => 'purge',
+                        'as'   => 'purge',
                         'uses' => 'UserDeleteController@purge',
                     ]
                 );
@@ -38,35 +38,35 @@ $api->group(
                 $api->get(
                     '/',
                     [
-                        'as' => 'index',
+                        'as'   => 'index',
                         'uses' => 'UserController@index',
                     ]
                 );
                 $api->post(
                     '/',
                     [
-                        'as' => 'store',
+                        'as'   => 'store',
                         'uses' => 'UserController@store',
                     ]
                 );
                 $api->get(
                     '/{id}',
                     [
-                        'as' => 'show',
+                        'as'   => 'show',
                         'uses' => 'UserController@show',
                     ]
                 );
                 $api->put(
                     '/{id}',
                     [
-                        'as' => 'update',
+                        'as'   => 'update',
                         'uses' => 'UserController@update',
                     ]
                 );
                 $api->delete(
                     '/{id}',
                     [
-                        'as' => 'destroy',
+                        'as'   => 'destroy',
                         'uses' => 'UserController@destroy',
                     ]
                 );

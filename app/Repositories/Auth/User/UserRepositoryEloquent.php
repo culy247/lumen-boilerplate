@@ -24,8 +24,8 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     protected $fieldSearchable = [
         'first_name' => 'like',
-        'last_name' => 'like',
-        'email' => 'like',
+        'last_name'  => 'like',
+        'email'      => 'like',
     ];
 
     /**
@@ -104,9 +104,9 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
             $user = $this->create(
                 [
-                    'first_name' => $nameParts['first_name'],
-                    'last_name' => $nameParts['last_name'],
-                    'email' => $userEmail,
+                    'first_name'  => $nameParts['first_name'],
+                    'last_name'   => $nameParts['last_name'],
+                    'email'       => $userEmail,
                     'avatar_type' => $provider,
                 ]
             );
@@ -118,10 +118,10 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
             $user->socialAccounts()->save(
                 new SocialAccount(
                     [
-                        'provider' => $provider,
+                        'provider'    => $provider,
                         'provider_id' => $data->id,
-                        'token' => $data->token,
-                        'avatar' => $data->avatar,
+                        'token'       => $data->token,
+                        'avatar'      => $data->avatar,
                     ]
                 )
             );
@@ -129,7 +129,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
             // Update the users information, token and avatar can be updated.
             $user->socialAccounts()->update(
                 [
-                    'token' => $data->token,
+                    'token'  => $data->token,
                     'avatar' => $data->avatar,
                 ]
             );
@@ -154,17 +154,17 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
         if (empty($parts)) {
             $result['first_name'] = null;
-            $result['last_name'] = null;
+            $result['last_name']  = null;
         }
 
         if (!empty($parts) && $size == 1) {
             $result['first_name'] = $parts[0];
-            $result['last_name'] = null;
+            $result['last_name']  = null;
         }
 
         if (!empty($parts) && $size >= 2) {
             $result['first_name'] = $parts[0];
-            $result['last_name'] = $parts[1];
+            $result['last_name']  = $parts[1];
         }
 
         return $result;

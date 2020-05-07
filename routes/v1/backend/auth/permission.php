@@ -3,22 +3,22 @@
 $api->group(
     [
         'namespace' => 'Auth\Permission',
-        'as' => 'permissions',
-        'prefix' => 'permissions',
+        'as'        => 'permissions',
+        'prefix'    => 'permissions',
     ],
     function () use ($api) {
         // resources
         $api->get(
             '/',
             [
-                'as' => 'index',
+                'as'   => 'index',
                 'uses' => 'PermissionController@index',
             ]
         );
         $api->get(
             '/{id}',
             [
-                'as' => 'show',
+                'as'   => 'show',
                 'uses' => 'PermissionController@show',
             ]
         );

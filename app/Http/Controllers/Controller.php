@@ -35,7 +35,9 @@ class Controller extends BaseController
         $method = '';
         if ($paginatorOrCollection instanceof Paginator) {
             $method = 'paginator';
-        } elseif ($paginatorOrCollection instanceof Collection OR $paginatorOrCollection instanceof SupportCollection) {
+        } 
+        elseif ($paginatorOrCollection instanceof Collection OR 
+                $paginatorOrCollection instanceof SupportCollection) {
             $method = 'collection';
         }
 

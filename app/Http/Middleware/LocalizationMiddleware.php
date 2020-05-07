@@ -31,14 +31,15 @@ class LocalizationMiddleware
     public function handle(Request $request, Closure $next)
     {
         $locale = $this->validateLanguage($this->getLocale($request));
-
+        
         if (is_null($locale)) {
             // we have not found any language that is supported
-            abort(Response::HTTP_PRECONDITION_FAILED, 'Unsupported Language.');
+            //abort(Response::HTTP_PRECONDITION_FAILED, 'Unsupported Language.');
+            $locale = 'en';
         }
-
+       
         app('translator')->setLocale($locale);
-
+        
         $response = $next($request);
         $response->headers->set('Content-Language', $locale);
         return $response;

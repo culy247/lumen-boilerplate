@@ -22,7 +22,7 @@ trait Hashable
         $decoded = app('hashids')->decode($hash);
 
         if (empty($decoded)) {
-            throw new BadRequestHttpException('Invalid hashed id.');
+            throw new BadRequestHttpException( trans('validation.attributes.hash_id_invalid') );
         }
 
         return $decoded[0];

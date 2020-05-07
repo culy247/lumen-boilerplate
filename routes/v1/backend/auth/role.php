@@ -3,43 +3,43 @@
 $api->group(
     [
         'namespace' => 'Auth\Role',
-        'as' => 'roles',
-        'prefix' => 'roles',
+        'as'        => 'roles',
+        'prefix'    => 'roles',
     ],
     function () use ($api) {
         // resources
         $api->get(
             '/',
             [
-                'as' => 'index',
+                'as'   => 'index',
                 'uses' => 'RoleController@index',
             ]
         );
         $api->post(
             '/',
             [
-                'as' => 'store',
+                'as'   => 'store',
                 'uses' => 'RoleController@store',
             ]
         );
         $api->get(
             '/{id}',
             [
-                'as' => 'show',
+                'as'   => 'show',
                 'uses' => 'RoleController@show',
             ]
         );
         $api->put(
             '/{id}',
             [
-                'as' => 'update',
+                'as'   => 'update',
                 'uses' => 'RoleController@update',
             ]
         );
         $api->delete(
             '/{id}',
             [
-                'as' => 'destroy',
+                'as'   => 'destroy',
                 'uses' => 'RoleController@destroy',
             ]
         );

@@ -145,6 +145,25 @@ abstract class BaseRepository extends BaseRepo implements CacheableInterface
     /**
      * @inheritDoc
      */
+    protected function serializeCriteria()
+    {
+        try {
+            return serialize($this->getCriteria());
+        } catch (Exception $e) {
+            try{
+                return serialize($this->getCriteria()->map(function ($criterion) {
+                    return $this->serializeCriterion($criterion);
+                }));
+            }catch(Exception $ee) {
+                //throw $ee;
+                return null;
+            }
+        }
+    }
+
+    /**
+     * @inheritDoc
+     */
     protected function serializeCriterion($criterion)
     {
         try {
@@ -152,23 +171,19 @@ abstract class BaseRepository extends BaseRepo implements CacheableInterface
 
             return $criterion;
         } catch (Exception $e) {
-            // We want to take care of the closure serialization errors,
-            // other than that we will simply re-throw the exception.
-            if ($e->getMessage() !== "Serialization of 'Closure' is not allowed" ||
-                (
-                    version_compare(phpversion(), '7.4', '>=') &&
-                    $e->getMessage() !== "Serialization of 'ReflectionProperty' is not allowed"
-                )
-            ) {
-                throw $e;
+            
+            try{
+
+                $r = new ReflectionObject($criterion);
+
+                return [
+                    'hash'       => md5((string)$r),
+                    'properties' => $r->getProperties(),
+                ];
+            }catch(Exception $ee) {
+                //throw $ee;
+                return null;
             }
-
-            $r = new ReflectionObject($criterion);
-
-            return [
-                'hash' => md5((string)$r),
-                'properties' => $r->getProperties(),
-            ];
         }
     }
 }

@@ -71,9 +71,9 @@ abstract class BaseTransformer extends TransformerAbstract
             $at = Carbon::parse($entity->{$column});
 
             return [
-                $column => $at->format(config('setting.formats.datetime_12')),
-                $column.'_readable' => $at->diffForHumans(),
-                $column.'_tz' => $at->timezone($timeZone)->format(config('setting.formats.datetime_12')),
+                $column                => $at->format(config('setting.formats.datetime_12')),
+                $column.'_readable'    => $at->diffForHumans(),
+                $column.'_tz'          => $at->timezone($timeZone)->format(config('setting.formats.datetime_12')),
                 $column.'_readable_tz' => $at->timezone($timeZone)->diffForHumans(),
             ];
         };

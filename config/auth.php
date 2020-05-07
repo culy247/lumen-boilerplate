@@ -8,13 +8,13 @@
 
 return [
     'defaults' => [
-        'guard' => 'api',
+        'guard'     => 'api',
         'passwords' => 'users',
     ],
 
     'guards' => [
         'api' => [
-            'driver' => 'passport',
+            'driver'   => 'passport',
             'provider' => 'users',
         ],
     ],
@@ -22,7 +22,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Auth\User\User::class,
+            'model'  => App\Models\Auth\User\User::class,
         ],
     ],
 ];

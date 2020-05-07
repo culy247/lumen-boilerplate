@@ -3,14 +3,14 @@
 $api->group(
     [
         'namespace' => 'User',
-        'as' => 'users',
+        'as'        => 'users',
     ],
     function () use ($api) {
 // Access
         $api->get(
             '/profile',
             [
-                'as' => 'profile',
+                'as'   => 'profile',
                 'uses' => 'UserAccessController@profile',
             ]
         );

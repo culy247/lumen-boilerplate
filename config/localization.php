@@ -2,15 +2,16 @@
 
 return [
     'supported_languages' => [
-        'ar',
+        //'ar',
         'en' => [
-            'en-GB',
+            //'en-GB',
             'en-US',
         ],
-        'zh' => [
+        /*'zh' => [
             'zh-CN',
         ],
         'es',
-        'fr',
+        'fr',*/
+        'vi'
     ],
 ];

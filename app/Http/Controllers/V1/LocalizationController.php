@@ -34,12 +34,8 @@ class LocalizationController extends Controller
         $localizations = collect();
 
         foreach (config('localization.supported_languages') as $key => $value) {
-            // it is a simple key
-            if (!is_array($value)) {
-                $localizations->push(new Localization($value));
-            } else { // it is a composite key
-                $localizations->push(new Localization($key, $value));
-            }
+            $localization = !is_array($value) ? new Localization($value) : new Localization($key, $value);
+            $localizations->push( $localization );
         }
 
         return $this->paginatorOrCollection($localizations, LocalizationTransformer::class);
