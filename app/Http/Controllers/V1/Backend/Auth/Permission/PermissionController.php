@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\V1\Backend\Auth\Permission;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\V1\Backend\Controller;
 use App\Repositories\Auth\Permission\PermissionRepository;
 use App\Transformers\Auth\PermissionTransformer;
 use Dingo\Api\Http\Request;

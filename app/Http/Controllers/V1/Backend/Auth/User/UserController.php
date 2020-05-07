@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\V1\Backend\Auth\User;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\V1\Backend\Controller;
 use App\Repositories\Auth\User\UserRepository;
 use App\Transformers\Auth\UserTransformer;
 use Dingo\Api\Http\Request;

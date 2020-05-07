@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\V1\Frontend\User;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\V1\Frontend\Controller;
 use App\Transformers\Auth\UserTransformer;
 
 /**

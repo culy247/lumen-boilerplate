@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\V1\Backend\Auth\Authorization;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\V1\Backend\Controller;
 use App\Repositories\Auth\Role\RoleRepository;
 use App\Repositories\Auth\User\UserRepository;
 use App\Transformers\Auth\RoleTransformer;

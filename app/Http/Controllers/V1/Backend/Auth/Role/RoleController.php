@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\V1\Backend\Auth\Role;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\V1\Backend\Controller;
 use App\Repositories\Auth\Role\RoleRepository;
 use App\Transformers\Auth\RoleTransformer;
 use Dingo\Api\Http\Request;
